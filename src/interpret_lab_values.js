@@ -1,4 +1,4 @@
-function interpret_abg(labValues){
+export function interpret_abg(labValues){
 
     /* establish variables for use as example structure */
     var aa_gradient = 12,
@@ -113,4 +113,9 @@ function interpret_abg(labValues){
         compensation,
         corrected_bicarb,
     };
+}
+
+export function labValuesComplete(labValues){
+    var { pH, PaCO2, PaO2, Na, Cl, HCO3, Age, Albumin, FiO2 } = labValues;
+    return !!(pH && PaCO2 && PaO2 && Na && Cl && HCO3 && Age && Albumin && FiO2);
 }
