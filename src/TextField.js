@@ -3,15 +3,19 @@ import React, { Component } from 'react';
 class TextField extends Component {
     render(){
         return (
-            <div className="form-group col-xs-4">
+            <div className="form-group col-xs-6 col-sm-4">
                 <div className="row">
-                    <label className="col-xs-4">{this.props.label}&nbsp;</label>
-                    <input
-                        className="form-control col-xs-8"
-                        type="text"
-                        defaultValue={this.props.value}
-                        ref={function(input){ this.props.refFun(input);}.bind(this)}
-                    />
+                    <div className="col-xs-4">
+                        <label>{this.props.label}&nbsp;</label>
+                    </div>
+                    <div className="col-xs-8">
+                        <input
+                            className="form-control"
+                            type="text"
+                            defaultValue={this.props.value}
+                            ref={function(input){ this.props.refFun(input);}.bind(this)}
+                        />
+                    </div>
                 </div>
             </div>)
     }
