@@ -9,7 +9,7 @@ class TextField extends Component {
                     <input
                         className="form-control col-xs-8"
                         type="text"
-                        value={this.props.value}
+                        defaultValue={this.props.value}
                         ref={function(input){ this.props.refFun(input);}.bind(this)}
                     />
                 </div>
@@ -17,4 +17,17 @@ class TextField extends Component {
     }
 }
 
-export default TextField;
+export { TextField };
+
+class TextDisplay extends Component {
+    render(){
+        return (
+            <div className="col-xs-4">
+                <strong>{this.props.label}&nbsp;</strong>
+                { this.props.value }
+            </div>
+        );
+    }
+}
+
+export { TextDisplay };

@@ -1,5 +1,5 @@
 import React from 'react';
-import labValuesComplete from './interpret_lab_values';
+import {labValuesComplete} from './interpret_lab_values';
 
 const ABGResults = (props) => {
     if (!labValuesComplete(props.labValues)){

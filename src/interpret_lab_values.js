@@ -11,7 +11,8 @@ export function interpret_abg(labValues){
         corrected_bicarb = {
             value: 26,
             indicates: 'but what does it mean??'
-        }; // or corrected_bicarb = null
+        },
+        comp; // or corrected_bicarb = null
 
 
 
@@ -30,8 +31,8 @@ export function interpret_abg(labValues){
     aa_gradient = (FiO2*7.13)-PaO2-(PaCO2/0.8);
     aa_gradient_uln = ((4+Age)/4);
     anion_gap = (Na-Cl-HCO3);
-    anion_gap_ref = (Albumin*3);
-    resp_chronicity = Math.abs((10*(7.4-pH))/(PaCO2-40));
+    var anion_gap_ref = (Albumin*3);
+    var resp_chronicity = Math.abs((10*(7.4-pH))/(PaCO2-40));
 
     if (anion_gap > anion_gap_ref){
         corrected_bicarb = (HCO3+(anion_gap-anion_gap_ref));
@@ -117,5 +118,6 @@ export function interpret_abg(labValues){
 
 export function labValuesComplete(labValues){
     var { pH, PaCO2, PaO2, Na, Cl, HCO3, Age, Albumin, FiO2 } = labValues;
-    return !!(pH && PaCO2 && PaO2 && Na && Cl && HCO3 && Age && Albumin && FiO2);
+    var flag = !!(pH && PaCO2 && PaO2 && Na && Cl && HCO3 && Age && Albumin && FiO2);
+    return flag;
 }
