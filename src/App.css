@@ -19,5 +19,10 @@
 }
 
 .container-main {
-    padding-top: 50px;
+    padding-top: 20px;
+}
+
+.result-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

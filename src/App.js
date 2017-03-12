@@ -9,15 +9,15 @@ class App extends Component {
         super(props);
         this.state = {
             labValues: {
-                pH: 6.7,
+                pH: 7.2,
                 Age: 27,
-                Cl: 3,
-                Na: 2,
-                PaCO2: 12,
-                Albumin: 10,
-                PaO2: 8,
-                HCO3:12,
-                FiO2: 8,
+                Cl: 95,
+                Na: 145,
+                PaCO2: 38,
+                Albumin: 4.5,
+                PaO2: 96,
+                HCO3: 26,
+                FiO2: 21,
             },
             mode: 'editing',
         };
