@@ -1,9 +1,41 @@
 import React from 'react';
-import {labValuesComplete} from './interpret_lab_values';
+import {labValuesComplete, interpret_abg} from './interpret_lab_values';
+
+
+const AAGradient = (props) => {
+    return <p>AAGradient</p>;
+};
+const AcidBaseStatus = (props) => {
+    return <p>AcidBaseStatus</p>;
+};
+const ChronicityOfRespiratory = (props) => {
+    return <p>ChronicityOfRespiratory</p>;
+};
+const Compensation = (props) => {
+    return <p>Compensation</p>;
+};
+const AnionGap = (props) => {
+    return <p>AnionGap</p>;
+};
+const CorrectedBicarb = (props) => {
+    return <p>CorrectedBicarb</p>;
+};
+
 
 const ABGResults = (props) => {
-    if (!labValuesComplete(props.labValues)){
-        return <div className="results"></div>;
+    var { labValues } = props.state;
+    if (labValues && labValuesComplete(labValues)){
+        const interpetation = interpret_abg(labValues);
+        return (
+            <div className="results">
+                <AAGradient interpetation={interpetation} />
+                <AcidBaseStatus interpetation={interpetation} />
+                <ChronicityOfRespiratory interpetation={interpetation} />
+                <Compensation interpetation={interpetation} />
+                <AnionGap interpetation={interpetation} />
+                <CorrectedBicarb interpetation={interpetation} />
+            </div>
+        );
     }
     return (
         <div className="results">

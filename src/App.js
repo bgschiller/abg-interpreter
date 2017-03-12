@@ -8,7 +8,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            labValues: {},
+            labValues: {
+                pH: 6.7,
+                Age: 27,
+                Cl: 3,
+                Na: 2,
+                PaCO2: 12,
+                Albumin: 10,
+                PaO2: 8,
+                HCO3:12,
+                FiO2: 8,
+            },
             mode: 'editing',
         };
     }
@@ -46,7 +56,7 @@ class App extends Component {
                 <NavBar/>
                 <div className="container container-main">
                     {labValuesElem}
-                    <ABGResults labValues={this.state || {}}/>
+                    <ABGResults state={this.state || {}}/>
                 </div>
       </div>
     );

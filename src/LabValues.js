@@ -16,7 +16,7 @@ const LabValuesInput = ({labValues, onSubmit}) => {
             <TextField label="Na+" value={labValues.Na} refFun={setRef("Na")} />
             <TextField label="Age" value={labValues.Age} refFun={setRef("Age")} />
             <TextField label="PaCO2" value={labValues.PaCO2} refFun={setRef("PaCO2")} />
-            <TextField label="Cl" value={labValues.Cl} refFun={setRef("Cl")} />
+            <TextField label="Cl-" value={labValues.Cl} refFun={setRef("Cl")} />
             <TextField label="Albumin" value={labValues.Albumin} refFun={setRef("Albumin")} />
             <TextField label="PaO2" value={labValues.PaO2} refFun={setRef("PaO2")} />
             <TextField label="HCO3" value={labValues.HCO3} refFun={setRef("HCO3")} />
@@ -56,7 +56,10 @@ const LabValuesDisplay = ({labValues, onEditClick}) => {
                 <button
                     className="btn btn-primary"
                     type="submit"
-                    onClick={onEditClick}
+                    onClick={function(e) {
+                        e.preventDefault();
+                        onEditClick();
+                    }}
                 >
                     Edit
                 </button>
