@@ -10,7 +10,7 @@ const LabValuesInput = ({labValues, onSubmit}) => {
             }
         };
     return (
-    <div className="row">
+    <div>
         <form className="form-inline">
             <TextField label="pH" value={labValues.pH} refFun={setRef("pH")} />
             <TextField label="Na+" value={labValues.Na} refFun={setRef("Na")} />
@@ -41,30 +41,33 @@ export { LabValuesInput };
 
 const LabValuesDisplay = ({labValues, onEditClick}) => {
     return (
-    <div className="row">
-        <form className="form-inline">
-            <TextDisplay label="pH" value={labValues.pH} />
-            <TextDisplay label="Na+" value={labValues.Na} />
-            <TextDisplay label="Age" value={labValues.Age} />
-            <TextDisplay label="PaCO2" value={labValues.PaCO2} />
-            <TextDisplay label="Cl" value={labValues.Cl} />
-            <TextDisplay label="Albumin" value={labValues.Albumin} />
-            <TextDisplay label="PaO2" value={labValues.PaO2} />
-            <TextDisplay label="HCO3" value={labValues.HCO3} />
-            <TextDisplay label="FiO2" value={labValues.FiO2} />
-            <div className="col-xs-12">
-                <button
-                    className="btn btn-primary"
-                    type="submit"
-                    onClick={function(e) {
-                        e.preventDefault();
-                        onEditClick();
-                    }}
-                >
-                    Edit
-                </button>
+    <div className="panel panel-default">
+        <div className="panel-body">
+            <div className="row">
+                    <TextDisplay label="pH" value={labValues.pH} />
+                    <TextDisplay label="Na+" value={labValues.Na} />
+                    <TextDisplay label="Age" value={labValues.Age} />
+                    <TextDisplay label="PaCO2" value={labValues.PaCO2} />
+                    <TextDisplay label="Cl" value={labValues.Cl} />
+                    <TextDisplay label="Albumin" value={labValues.Albumin} />
+                    <TextDisplay label="PaO2" value={labValues.PaO2} />
+                    <TextDisplay label="HCO3" value={labValues.HCO3} />
+                    <TextDisplay label="FiO2" value={labValues.FiO2} />
             </div>
-        </form>
+            <div className="row edit-button">
+                <div className="col-xs-12">
+                    <button
+                        className="btn btn-primary"
+                        onClick={function(e) {
+                            e.preventDefault();
+                            onEditClick();
+                        }}
+                    >
+                        Edit
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     )
 }
