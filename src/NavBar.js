@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NavBar = () =>
-    (<nav className="navbar navbar-inverse">
+    (<nav className="navbar">
      <div className="container">
        <div className="navbar-header">
          <a className="navbar-brand" href="#">ABG Interpreter</a>

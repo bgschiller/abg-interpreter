@@ -58,7 +58,7 @@ class App extends Component {
                     {labValuesElem}
                     <ABGResults state={this.state || {}}/>
                 </div>
-      </div>
+            </div>
     );
   }
 }

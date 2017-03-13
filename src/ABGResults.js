@@ -18,33 +18,34 @@ const AAGradient = (props) => {
 const AcidBaseStatus = (props) => {
     const { acid_base_status } = props.results;
     return (
-        <div className="result-section row">
-            <div className="col-xs-6">
-                <p>
-                    Primary acid-base status: &nbsp;
-                    {acid_base_status.primary_acid_base_status}
-                </p>
-                <p>
-                    Secondary acid-base disturbances:
-                </p>
-                <ul className="secondary-acid-base-statuses">
-                    {acid_base_status.secondary_acid_base_statuses.map((s, ix) => {
-                        return <li key={ix}>{s}</li>;
-                    })}
-                </ul>
-
+        <div className="panel panel-default">
+            <div className="panel-body">
+                <div className="result-section row">
+                    <div className="col-xs-12">
+                        <p>
+                            <strong>Primary acid-base status: </strong>
+                            {acid_base_status.primary_acid_base_status}
+                        </p>
+                        <strong>Secondary acid-base disturbances:</strong>
+                        <ul className="secondary-acid-base-statuses">
+                            {acid_base_status.secondary_acid_base_statuses.map((s, ix) => {
+                                return <li key={ix}>{s}</li>;
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>);
 };
 const ChronicityOfRespiratory = (props) => {
     const { acid_base_status, chronicity_of_respiratory } = props.results;
-    if (!_.contains(['respiratory acidosis', 'respiratory alkalosis'], acid_base_status.primary_acid_base_status)) {
-        return null;
-    }
+    // if (!_.contains(['respiratory acidosis', 'respiratory alkalosis'], acid_base_status.primary_acid_base_status)) {
+    //     return null;
+    // }
     const { value, lower_limit, upper_limit } = chronicity_of_respiratory;
-    const w = 100 * (value - lower_limit) / (upper_limit - lower_limit),
+    const w = 57 ||  100 * (value - lower_limit) / (upper_limit - lower_limit),
         style = {width:  w + "%"};
-    return (<div className="result-section row">
+    return (<div className="result-section row chronicity-of-respiration">
         <p>Chronicity Of Respiratory [alkalosis/acidosis]</p>
         <div className="progress">
             <div className="progress-bar" role="progressbar"
@@ -54,13 +55,13 @@ const ChronicityOfRespiratory = (props) => {
                 aria-valuemax={upper_limit}>
             </div>
         </div>
-        <div className="col-xs-2">
+        <div className="col-xs-4 text-left">
             <span>Mostly Chronic</span>
         </div>
-        <div className="col-xs-8">
+        <div className="col-xs-4 text-center">
             <span>Mixed</span>
         </div>
-        <div className="col-xs-2">
+        <div className="col-xs-4 text-right">
             <span>Mostly Acute</span>
         </div>
     </div>);

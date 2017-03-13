@@ -1,30 +1,10 @@
 .App {
   text-align: center;
+  padding-bottom: 40px;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.container-main {
-    padding-top: 20px;
-}
-
-.result-section {
-    margin-top: 50px;
-    margin-bottom: 50px;
+.quantity-inputs {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .input-group .left-label{
@@ -42,4 +22,12 @@
 
 .quantity {
     padding: 5px;
+}
+
+.chronicity-of-respiration {
+    padding: 0 15px;
+}
+
+.progress {
+    margin-bottom: 8px;
 }
