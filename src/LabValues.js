@@ -20,7 +20,7 @@ const LabValuesInput = ({labValues, onSubmit}) => {
             <TextField label="Albumin" value={labValues.Albumin} refFun={setRef("Albumin")} />
             <TextField label="PaO2" value={labValues.PaO2} refFun={setRef("PaO2")} />
             <TextField label="HCO3" value={labValues.HCO3} refFun={setRef("HCO3")} />
-            <TextField label="FiO2" value={labValues.FiO2} refFun={setRef("FiO2")} />
+            <TextField label="FiO2" value={labValues.FiO2} refFun={setRef("FiO2")} addOn="%" />
             <div className="col-xs-12">
                 <button
                     className="btn btn-primary"

@@ -1,16 +1,16 @@
 import React from 'react';
 import {labValuesComplete, interpret_abg} from './interpret_lab_values';
-
+import _ from 'underscore';
 
 const AAGradient = (props) => {
     const {aa_gradient, aa_gradient_uln} = props.results;
     return (
         <div className="result-section row">
             <div className="col-sm-3">
-                A-a gradient: {aa_gradient}.
+                A-a gradient: {Math.round(100*aa_gradient) / 100}
             </div>
             <div className="col-sm-3">
-                Upper limit of normal is {aa_gradient_uln}.
+                Upper limit of normal is {aa_gradient_uln}
             </div>
         </div>
     );
@@ -21,21 +21,27 @@ const AcidBaseStatus = (props) => {
         <div className="result-section row">
             <div className="col-xs-6">
                 <p>
-                    Acid-base status:
+                    Primary acid-base status: &nbsp;
                     {acid_base_status.primary_acid_base_status}
                 </p>
-            </div>
-            <div className="col-xs-6">
-                <ul>
+                <p>
+                    Secondary acid-base disturbances:
+                </p>
+                <ul className="secondary-acid-base-statuses">
                     {acid_base_status.secondary_acid_base_statuses.map((s, ix) => {
                         return <li key={ix}>{s}</li>;
                     })}
                 </ul>
+
             </div>
         </div>);
 };
 const ChronicityOfRespiratory = (props) => {
-    const { value, lower_limit, upper_limit } = props.results.chronicity_of_respiratory;
+    const { acid_base_status, chronicity_of_respiratory } = props.results;
+    if (!_.contains(['respiratory acidosis', 'respiratory alkalosis'], acid_base_status.primary_acid_base_status)) {
+        return null;
+    }
+    const { value, lower_limit, upper_limit } = chronicity_of_respiratory;
     const w = 100 * (value - lower_limit) / (upper_limit - lower_limit),
         style = {width:  w + "%"};
     return (<div className="result-section row">
@@ -82,8 +88,8 @@ const CorrectedBicarb = (props) => {
         return null;
     }
     return (<div className="result-section">
-        Corrected HCO<sub>3</sub><sup>-</sup>:
-        {corrected_bicarb}
+        Corrected HCO<sub>3</sub><sup>-</sup>&nbsp;:&nbsp;
+        {Math.round(corrected_bicarb)}
     </div>);
 };
 
@@ -93,7 +99,7 @@ const ABGResults = (props) => {
     if (labValues && labValuesComplete(labValues)){
         const results = interpret_abg(labValues);
         return (
-            <div className="results">
+            <div className="results text-left">
                 <AAGradient results={results} />
                 <AcidBaseStatus results={results} />
                 <ChronicityOfRespiratory results={results} />

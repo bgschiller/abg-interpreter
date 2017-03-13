@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 
 class TextField extends Component {
     render(){
+        const { addOn, label, value, refFun } = this.props;
         return (
             <div className="form-group col-xs-6 col-sm-4">
                 <div className="row">
                     <div className="col-xs-4">
-                        <label>{this.props.label}&nbsp;</label>
+                        <label>{label}&nbsp;</label>
                     </div>
-                    <div className="col-xs-8">
+                    <div className="col-xs-8 input-group">
                         <input
                             className="form-control"
                             type="text"
-                            defaultValue={this.props.value}
-                            ref={function(input){ this.props.refFun(input);}.bind(this)}
+                            defaultValue={value}
+                            ref={function(input){ refFun(input);}.bind(this)}
                         />
+                        { addOn ? (
+                            <span className="input-group-addon">
+                               {addOn}
+                            </span>
+                        ) : null}
                     </div>
                 </div>
             </div>)
