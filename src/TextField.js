@@ -5,11 +5,11 @@ class TextField extends Component {
         const { addOn, label, value, refFun } = this.props;
         return (
             <div className="form-group">
-                 <label className="sr-only" for={label}>{label}</label>
-                    <div className="input-group">
+                 <label className="sr-only" htmlFor={label}>{label}</label>
+                    <div className="input-group input-group-lg">
                         <div className="left-label input-group-addon">{label}</div>
                         <input
-                            className="form-control input-sm"
+                            className="form-control"
                             name={label}
                             type="text"
                             defaultValue={value}

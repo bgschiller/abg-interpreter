@@ -24,7 +24,7 @@ const LabValuesInput = ({labValues, onSubmit}) => {
             <div className="row">
                 <div className="col-xs-12">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-primary btn-lg"
                         onClick={(e) => {
                             onSubmit(_.mapObject(textFieldRefs, 'value'))
                             e.preventDefault();
@@ -58,7 +58,7 @@ const LabValuesDisplay = ({labValues, onEditClick}) => {
             <div className="row edit-button">
                 <div className="col-xs-12">
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-primary btn-lg"
                         onClick={function(e) {
                             e.preventDefault();
                             onEditClick();

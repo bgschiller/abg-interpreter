@@ -1,10 +1,12 @@
 .App {
   text-align: center;
   padding-bottom: 40px;
+  font-size: 18px;
 }
 .quantity-inputs {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
+
 }
 
 .input-group .left-label{
@@ -12,8 +14,10 @@
 }
 
 .input-group .input-group-addon{
-    font-size: .8em;
     font-weight: bold;
+}
+.input-group {
+    font-size: 2em;
 }
 
 .edit-button {
