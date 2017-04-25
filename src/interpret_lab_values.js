@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 export function interpret_abg(labValues){
 
     /* establish variables for use as example structure */
@@ -123,21 +125,57 @@ function validatePH(val){
     return 'pH must be between 0 and 14';
 }
 
+function validateNa(val){
+    if (val >= 110 && val <= 170){
+        return null;
+    }
+    return 'Na+ must be between 110 and 170';
+}
+
+function validateAge(val){
+    if (val >= 0 && val <= 120){
+        return null;
+    }
+    return 'Age must be between 0 and 120';
+}
+
+function validateCl(val){
+    if (val >= 70 && val <= 130){
+        return null;
+    }
+    return 'Cl- should be between 70 and 130';
+}
+
+function validateFiO2(val){
+    if (val >= 2 && val <= 100){
+        return null;
+    }
+    return 'FiO2 should be between 2 and 100 (eg, 28% rather than 0.28)';
+}
+
 export const labValuesDefns = [
     {name: 'pH', label: 'pH', validate: validatePH},
-    {name: 'Na', label: "Na+"},
-    {name: 'Age', label: "Age"},
+    {name: 'Na', label: "Na+", validate: validateNa},
+    {name: 'Age', label: "Age", units:'years', validateAge},
     {name: 'PaCO2', label: "PaCO2"},
-    {name: 'Cl', label: "Cl-"},
+    {name: 'Cl', label: "Cl-", validate: validateCl},
     {name: 'Albumin', label: "Albumin"},
     {name: 'PaO2', label: "PaO2"},
     {name: 'HCO3', label: "HCO3"},
-    {name: 'FiO2', label: "FiO2", units:'%'},
+    {name: 'FiO2', label: "FiO2", units:'%', validate: validateFiO2},
 ];
 
 
 export function labValuesComplete(labValues){
-    var { pH, PaCO2, PaO2, Na, Cl, HCO3, Age, Albumin, FiO2 } = labValues;
-    var flag = !!(pH && PaCO2 && PaO2 && Na && Cl && HCO3 && Age && Albumin && FiO2);
-    return flag;
+    return _.all(
+        labValuesDefns
+        .map(({name}) => !!labValues[name])
+    );
+}
+
+export function labValuesValid(labValues){
+    return !_.any(
+        labValuesDefns
+        .map(({name, validate}) => validate && validate(labValues[name]))
+    );
 }

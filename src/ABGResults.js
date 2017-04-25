@@ -130,7 +130,7 @@ const ABGResults = (props) => {
     }
     return (
         <div className="results">
-            <p>results will live here</p>
+            <p>One or more </p>
         </div>
     );
 };
