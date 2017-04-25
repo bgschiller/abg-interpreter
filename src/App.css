@@ -35,3 +35,6 @@
 .progress {
     margin-bottom: 8px;
 }
+.error {
+    color: #b53c3c;
+}

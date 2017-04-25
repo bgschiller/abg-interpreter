@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class TextField extends Component {
     render(){
-        const { addOn, label, value, refFun } = this.props;
+        const { units, label, value, onChange, validate } = this.props;
+        var error = validate && validate(value);
         return (
             <div className="form-group">
                  <label className="sr-only" htmlFor={label}>{label}</label>
@@ -13,11 +14,14 @@ class TextField extends Component {
                             name={label}
                             type="text"
                             defaultValue={value}
-                            ref={function(input){ refFun(input);}}
+                            onChange={onChange}
                         />
                             <div className="input-group-addon">
-                               {addOn}
+                               {units}
                            </div>
+                    </div>
+                    <div className="error">
+                        {error}
                     </div>
             </div>)
     }

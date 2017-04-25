@@ -116,6 +116,26 @@ export function interpret_abg(labValues){
     };
 }
 
+function validatePH(val){
+    if (val >= 0 && val <= 14){
+        return null;
+    }
+    return 'pH must be between 0 and 14';
+}
+
+export const labValuesDefns = [
+    {name: 'pH', label: 'pH', validate: validatePH},
+    {name: 'Na', label: "Na+"},
+    {name: 'Age', label: "Age"},
+    {name: 'PaCO2', label: "PaCO2"},
+    {name: 'Cl', label: "Cl-"},
+    {name: 'Albumin', label: "Albumin"},
+    {name: 'PaO2', label: "PaO2"},
+    {name: 'HCO3', label: "HCO3"},
+    {name: 'FiO2', label: "FiO2", units:'%'},
+];
+
+
 export function labValuesComplete(labValues){
     var { pH, PaCO2, PaO2, Na, Cl, HCO3, Age, Albumin, FiO2 } = labValues;
     var flag = !!(pH && PaCO2 && PaO2 && Na && Cl && HCO3 && Age && Albumin && FiO2);
