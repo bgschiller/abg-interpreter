@@ -7,6 +7,13 @@ env:
   global:
     - secure: >-
         eOiHuP8xJoz4yW9JWp6zaiURK6KQEZ6rvEsAQsHAKwITPi2nRq+B3T5VAQkEgX16gCCOCgoBglDo1ppx1+O42eARTWKEqtfaga/CIW1InrzvpKqmEDndqKrr4/3W1+ZLU3SmEhg8moBHg9zBPxV4FXoQoUXcmpKEvUWzmRWUcAtkhfTDh0wWVxq0jxZ/1gDwwoWbu5dw5HdsDL2E7zL/FWa1KXd1gaYgj0++xO8rlpyEYRFCEyB9k41WRO8vNC7FGERiGFsc1hIruucyqf7ulYtYnsoTOkX1HWm1aYuVZZ85jDuyhxOFsjANHsmLPPBfJlwM3epwa0ypjrfa32TXiqfqyB4MwmqtPthf+Atl4EmelpwJNGnr8JOxlvgEfQwQbPh7F8sGaxKZiOaGRISaiBIxDhokCaPnJBWPkQT5DWBsFPk9L776VXOLGt2+iigXyJulq2tK/qerp7AwR1JuCHztdoRl5rDKG4Ij1xGrJ3JduUFWLGga9aQ/4AWpIv4Y8cffRebzm4ZGmSUIq3XnFVqXyFpXGtv0Hd/m5lyUzgsscEPNBEOPpWgpkO6dvSfd2O/j5d11sh+K8mEg8ZKUt1haSrlR9ba5oed8ToItd+5H9erFqQYYgfN3+5I2AkBrt14dQvUlfh2tER3kgzHbEFRRPjrcfj3SrjHNb2pjEUM=
+    - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 before_script:
   - git config --global user.name "Travis CI"
   - git config --global user.email "bgschiller@gmail.com"
