@@ -2,6 +2,7 @@
   "name": "abg-interpreter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://brianschiller.com/abg-interpreter",
   "devDependencies": {
     "react-scripts": "0.9.4"
   },
