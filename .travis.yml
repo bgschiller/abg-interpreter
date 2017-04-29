@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '0.12'
+install: npm install
+script: npm run build && oghliner offline build
+env:
+  global:
+    - secure: >-
+        eOiHuP8xJoz4yW9JWp6zaiURK6KQEZ6rvEsAQsHAKwITPi2nRq+B3T5VAQkEgX16gCCOCgoBglDo1ppx1+O42eARTWKEqtfaga/CIW1InrzvpKqmEDndqKrr4/3W1+ZLU3SmEhg8moBHg9zBPxV4FXoQoUXcmpKEvUWzmRWUcAtkhfTDh0wWVxq0jxZ/1gDwwoWbu5dw5HdsDL2E7zL/FWa1KXd1gaYgj0++xO8rlpyEYRFCEyB9k41WRO8vNC7FGERiGFsc1hIruucyqf7ulYtYnsoTOkX1HWm1aYuVZZ85jDuyhxOFsjANHsmLPPBfJlwM3epwa0ypjrfa32TXiqfqyB4MwmqtPthf+Atl4EmelpwJNGnr8JOxlvgEfQwQbPh7F8sGaxKZiOaGRISaiBIxDhokCaPnJBWPkQT5DWBsFPk9L776VXOLGt2+iigXyJulq2tK/qerp7AwR1JuCHztdoRl5rDKG4Ij1xGrJ3JduUFWLGga9aQ/4AWpIv4Y8cffRebzm4ZGmSUIq3XnFVqXyFpXGtv0Hd/m5lyUzgsscEPNBEOPpWgpkO6dvSfd2O/j5d11sh+K8mEg8ZKUt1haSrlR9ba5oed8ToItd+5H9erFqQYYgfN3+5I2AkBrt14dQvUlfh2tER3kgzHbEFRRPjrcfj3SrjHNb2pjEUM=
+before_script:
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "bgschiller@gmail.com"
+after_success:
+  - >-
+    echo "travis_fold:end:after_success" && [ "${TRAVIS_PULL_REQUEST}" = "false"
+    ] && [ "${TRAVIS_BRANCH}" = "master" ] && echo "Deploying…" && oghliner deploy build
