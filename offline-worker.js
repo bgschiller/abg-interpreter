@@ -39,19 +39,19 @@
 
     // This is the unique name for the cache controlled by this version of the worker.
     get CACHE_NAME() {
-      return this.CACHE_PREFIX + 'fc86a0d5084656d8a977c5ee9dfdc037f7418485';
+      return this.CACHE_PREFIX + 'eb0f794f7ade59e384baf2078068e3134d25dc50';
     },
 
     // This is a list of resources that will be cached.
     RESOURCES: [
-      './asset-manifest.json', // e101f1061bdcd5c91a38786c0d18f07ca500a310
+      './asset-manifest.json', // 8b499bb2d86b82ef792c6cf4790e2fef127d906e
       './favicon.ico', // 55bbacc4b53578835604e4954cf6bd414accb593
-      './index.html', // 8f72b0d08bc522886e01ab248001f3b51a515111
+      './index.html', // be9f89a5487d84765fed3ee5adb37bcf202785b0
       './offline-manager.js', // e2e09e000c5b64035940ae44e9c0936eb25ecd51
       './static/css/main.185800f4.css', // b172baee70890762411322bcbab6dcf460b228ed
       './static/css/main.185800f4.css.map', // f862a2acf6d48f816ce1a4160010a091ad043f13
-      './static/js/main.bdc20c34.js', // 56faa227248dc52e45255620adb7b385e7fc767b
-      './static/js/main.bdc20c34.js.map', // be80ca65e7b7a89f02f3176cc27f8deadd910f12
+      './static/js/main.d20255ea.js', // accb7463dc6e2cc4e40015df012ebc011b5fa848
+      './static/js/main.d20255ea.js.map', // eca6e06ccb930e7fe52c8c2be59bef0c5d22bb76
 
     ],
 
