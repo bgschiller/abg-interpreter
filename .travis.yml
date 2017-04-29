@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '4'
 install: npm install
-script: npm run build && oghliner offline build
+script: npm run build && $(npm bin)/oghliner offline build
 env:
   global:
     - secure: >-
@@ -13,4 +13,4 @@ before_script:
 after_success:
   - >-
     echo "travis_fold:end:after_success" && [ "${TRAVIS_PULL_REQUEST}" = "false"
-    ] && [ "${TRAVIS_BRANCH}" = "master" ] && echo "Deploying…" && oghliner deploy build
+    ] && [ "${TRAVIS_BRANCH}" = "master" ] && echo "Deploying…" && $(npm bin)/oghliner deploy build
